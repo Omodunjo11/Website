@@ -208,7 +208,11 @@
     .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
-
+ 
+    .fade-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
     /* RESPONSIVE */
     @media (max-width: 1100px) {
       #home { grid-template-columns: 1fr; min-height: auto; }
