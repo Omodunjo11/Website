@@ -497,11 +497,26 @@ const ZD={
     {w:'LAPO',p:'\u{1F4AC}',t:"You made it. Finally."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"Finally?"},
     {w:'LAPO',p:'\u{1F4AC}',t:"I have been waiting to show someone this city properly. Get settled. I have a reservation tonight."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"Where are we going?"},
-    {w:'LAPO',p:'\u{1F4AC}',t:"That is question one of three. I had this planned for a while. I just needed you to actually get on the plane."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"No pressure then."},
-    {w:'LAPO',p:'\u{1F4AC}',t:"None at all. Use your questions wisely."},
-  ]},
+  ],
+  choice:{
+    prompt:"What does Kwasi do?",
+    options:[
+      {label:"Where are we going?",path:'A'},
+      {label:"*(Smiles and says nothing)*",path:'B',stg:true}
+    ],
+    pathA:[
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"Where are we going?"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"That is question one of three. I had this planned for a while. I just needed you to actually get on the plane."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"No pressure then."},
+      {w:'LAPO',p:'\u{1F4AC}',t:"None at all. Use the others wisely."}
+    ],
+    pathB:[
+      {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(says nothing. Just smiles.)*"},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(beat)* You are not going to ask."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"You said you had it."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(quietly)* Yeah. I do."}
+    ]
+  }},
   feed:{name:'FISH CHEEKS',icon:'\u{1F420}',day:'Day 1 · Evening',xp:100,img:'kwasi_mimosa',dlg:[
     {w:'LAPO',p:'\u{1F4AC}',t:"Fish Cheeks. Thai seafood. NoHo. You are going to love it."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"This place looks incredible."},
@@ -538,11 +553,33 @@ icon:'\u{1F37A}',day:'Day 1 · Night',xp:100,img:'milano',dlg:[
     {w:'LAPO',p:'\u{1F4AC}',t:"Night In HQ. TV. Snacks. No agenda."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"This might be my favourite part of the day."},
     {w:'LAPO',p:'\u{1F4AC}',t:"The McFlurry or the company?"},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"Both."},
+    {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(smiles)* Both."},
     {w:'LAPO',p:'\u{1F4AC}',t:"I was supposed to play it cool tonight."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"How's that going."},
-    {w:'LAPO',p:'\u{1F4AC}',t:"Awful. Pass the remote."},
-  ]},
+    {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(beat)*"}
+  ],
+  choice:{
+    prompt:"What does Kwasi do?",
+    options:[
+      {label:"You are doing terribly.",path:'A'},
+      {label:"*(Stays quiet)*",path:'B',stg:true}
+    ],
+    pathA:[
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"You are doing terribly."},
+      {w:'LAPO',p:'\u{1F4AC}',t:"Awful. Pass the remote."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(laughing)* That is your recovery?"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"I am not recovering. I am redirecting. There is a difference."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"There is not."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(quietly)* No. There is not."}
+    ],
+    pathB:[
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(silence)*"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"You are not going to say anything."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"No."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(longer beat)* That is worse, for the record."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"I know."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(quietly, almost to himself)* Yeah. Me too."}
+    ]
+  }},
   brooklyn:{name:'BROOKLYN MORNING',icon:'\u2615',day:'Day 2 · Morning',xp:75,img:'coffee_selfie',dlg:[
     {w:'LAPO',p:'\u{1F4AC}',t:"Day 2. No rush. Coffee first. We are walking Brooklyn this morning."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"This is exactly what I needed."},
@@ -555,21 +592,45 @@ icon:'\u{1F37A}',day:'Day 1 · Night',xp:100,img:'milano',dlg:[
     {w:'LAPO',p:'\u{1F4AC}',t:"I said you could ask three questions. That was not a question. Follow."},
   ]},
   wv:{name:"ROSEMARY'S",icon:'\u{1F35D}',day:'Day 2 · Evening',xp:125,img:'wv',dlg:[
-    {w:'LAPO',p:'\u{1F4AC}',t:"Rosemary's. West Village. Debrief dinner. Proper Italian and we talk about the two days."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"You were not joking about the food situation."},
-    {w:'LAPO',p:'\u{1F4AC}',t:"I never joke about food. Get the pappardelle."},
+    {w:'LAPO',p:'\u{1F4AC}',t:"The debrief dinner. We eat something proper and talk about the two days."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"You know what, I genuinely had the best time."},
     {w:'LAPO',p:'\u{1F4AC}',t:"I know."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"You were going to let me finish."},
-    {w:'LAPO',p:'\u{1F4AC}',t:"Sorry. Go ahead."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"I did not expect this trip to feel like... this."},
+    {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(beat)* Sorry. Go ahead."},
+    {w:'KWASI',p:'\u{1F642}',pur:true,t:"I did not expect this trip to feel like… this."},
     {w:'LAPO',p:'\u{1F4AC}',t:"Like what?"},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"You know what."},
-    {w:'LAPO',p:'\u{1F4AC}',t:"Yeah. I do."},
+    {w:'LAPO',p:'\u{1F4AC}',stg:true,cb:true,t:"*(long pause)* Yeah. I do."},
+    {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(raises glass)*"},
     {w:'LAPO',p:'\u{1F4AC}',t:"One last thing."},
-    {w:'KWASI',p:'\u{1F642}',pur:true,t:"What is it?"},
-    {w:'LAPO',p:'\u{1F4AC}',t:"Not tonight."},
-  ]},
+    {w:'KWASI',p:'\u{1F642}',pur:true,t:"What is it?"}
+  ],
+  choice:{
+    prompt:"What does Kwasi do?",
+    options:[
+      {label:"Tell me.",path:'A'},
+      {label:"*(Waits)*",path:'B',stg:true}
+    ],
+    pathA:[
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"Tell me."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(beat)* Not here."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"Then when?"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"Soon. I just need it to not be tonight."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,t:"Why?"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"Because tonight I want to sit here with you. And not make it complicated yet."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(quietly)* Okay."},
+      {w:'LAPO',p:'\u{1F4AC}',t:"Okay."}
+    ],
+    pathB:[
+      {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(says nothing. Holds his gaze.)*"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"Not tonight."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(long beat)*"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"But not never."},
+      {w:'LAPO',p:'\u{1F4AC}',stg:true,t:"*(raises glass)*"},
+      {w:'LAPO',p:'\u{1F4AC}',t:"To New York."},
+      {w:'KWASI',p:'\u{1F642}',pur:true,stg:true,t:"*(quietly)* To New York."}
+    ]
+  }},
   beacon:{name:'THE BEACON MISSION',icon:'\u{1F3D4}\ufe0f',day:'Day 2 · June 24',xp:150,img:'kwasi_amsterdam',dlg:[
     {w:'LAPO',p:'\u{1F4AC}',t:"Beacon. About ninety minutes north. Dia Beacon first, and my friends are coming too."},
     {w:'KWASI',p:'\u{1F642}',pur:true,t:"Wait, the whole crew?"},
@@ -716,7 +777,7 @@ function devSkipStage(){
   if(document.getElementById('ch-complete').classList.contains('show')){closeCCC();return}
   if(document.getElementById('cin').classList.contains('on')){skipCin();show('char');setTimeout(animStats,300);return}
   if(document.getElementById('char').classList.contains('on')){show('map');setTimeout(()=>{drawPaths();updateMap()},0);return}
-  if(document.getElementById('treaty').classList.contains('on')){show('victory');confetti();initVictoryPortraits();return}
+  if(document.getElementById('treaty').classList.contains('on')){show('victory');confetti();initVictoryPortraits();setVictoryCopy();return}
   if(document.getElementById('victory').classList.contains('on'))return;
   if(document.getElementById('map').classList.contains('on')){
     if(!G.lDone){skipLondonChapter();return}
